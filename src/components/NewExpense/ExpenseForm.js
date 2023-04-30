@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-const ExpenseFrom = () => {
+const ExpenseFrom = (props) => {
   // prvni je promenna do ktere se ukladaji data, druha cast je funkce(setovaci funkce), ktera nastavuje promennou. do useState pisu defaultni hodnotu
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -55,7 +55,9 @@ const ExpenseFrom = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
+    // lifting up data to expenses
+    // nejaka fuknce? jaka koliv?
+    props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
