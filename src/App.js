@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import Button from "./components/UI/Button";
 
 const DAMMY_EXPENSES = [
   {
@@ -34,10 +35,11 @@ function App() {
     });
   };
   return (
-    <div>
+    <Fragment>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
-    </div>
+      <Button>Delete</Button>
+    </Fragment>
   );
 }
 
